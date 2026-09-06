@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   compute_disorder.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abdkaya@student.42istanbul.com.tr          +#+  +:+       +#+        */
+/*   By: okaymazo@student.42istanbul.com.tr         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 07:02:02 by abdkaya           #+#    #+#             */
-/*   Updated: 2026/08/31 10:15:21 by abdkaya          ###   ########.fr       */
+/*   Updated: 2026/09/05 16:13:31 by okaymazo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "pushswap.h"
 
 int	is_sorted(int *stack_a, int size)
 {
