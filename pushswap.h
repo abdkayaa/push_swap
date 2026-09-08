@@ -6,7 +6,7 @@
 /*   By: okaymazo@student.42istanbul.com.tr         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/05 16:26:35 by okaymazo          #+#    #+#             */
-/*   Updated: 2026/09/08 09:59:02 by okaymazo         ###   ########.fr       */
+/*   Updated: 2026/09/08 14:09:05 by okaymazo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,23 +32,23 @@ typedef struct s_stack
 	int	size;
 }	t_stack;
 
-double	calculate_disorder(t_stack *a);
 int		is_sorted(int *array, int size);
+double	calculate_disorder(t_stack *a);
+void	apply_strategy(t_options *opt, t_stack *a, t_stack *b);
 
 int		stack_size(int argc, char **argv, t_options *opt);
 void	fill_stack(int argc, char **argv, t_options *opt, int *stack_a);
 
-void	ft_putstr_fd(char *s, int fd);
-void	error_exit(void);
-long	ft_atoi(char *num);
-void	ft_check_duplicates(int *stack, int size);
-
-int		is_valid_number(char *str);
-
-void	init_options(t_options *opts);
 int		ft_strcmp(char *s1, char *s2);
+void	init_options(t_options *opts);
 int		parse_flag(char *arg, t_options *opts);
 void	verify_strategies(t_options *opts);
+
+void	ft_putstr_fd(char *s, int fd);
+void	error_exit(void);
+int		is_valid_number(char *str);
+long	ft_atoi(char *num);
+void	ft_check_duplicates(int *stack, int size);
 
 void	sa(t_stack *stack_a);
 void	sb(t_stack *stack_b);
