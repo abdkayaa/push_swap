@@ -1,43 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swaps.c                                            :+:      :+:    :+:   */
+/*   rotates.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: okaymazo@student.42istanbul.com.tr         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/07 18:33:22 by okaymazo          #+#    #+#             */
-/*   Updated: 2026/09/07 18:43:59 by okaymazo         ###   ########.fr       */
+/*   Created: 2026/09/07 18:50:13 by okaymazo          #+#    #+#             */
+/*   Updated: 2026/09/08 08:53:45 by okaymazo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-static int	swap(t_stack *stack)
+static int	rotate(t_stack *stack)
 {
 	int	tmp;
+	int	i;
 
 	if (stack->size < 2)
 		return (0);
 	tmp = stack->array[0];
-	stack->array[0] = stack->array[1];
-	stack->array[1] = tmp;
+	i = 0;
+	while (i < stack->size - 1)
+	{
+		stack->array[i] = stack->array[i + 1];
+		i++;
+	}
+	stack->array[i] = tmp;
 	return (1);
 }
 
-void	sa(t_stack *stack_a)
+void	ra(t_stack *stack_a)
 {
-	if (swap(stack_a))
-		ft_putstr_fd("sa\n", 1);
+	if (rotate(stack_a))
+		ft_putstr_fd("ra\n", 1);
 }
 
-void	sb(t_stack *stack_b)
+void	rb(t_stack *stack_b)
 {
-	if (swap(stack_b))
-		ft_putstr_fd("sb\n", 1);
+	if (rotate(stack_b))
+		ft_putstr_fd("rb\n", 1);
 }
 
-void	ss(t_stack *stack_a, t_stack *stack_b)
+void	rr(t_stack *stack_a, t_stack *stack_b)
 {
-	if (swap(stack_a) && swap(stack_b))
-		ft_putstr_fd("ss\n", 1);
+	if (rotate(stack_a) && rotate(stack_b))
+		ft_putstr_fd("rr\n", 1);
 }

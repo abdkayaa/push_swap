@@ -6,7 +6,7 @@
 /*   By: okaymazo@student.42istanbul.com.tr         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/05 16:26:35 by okaymazo          #+#    #+#             */
-/*   Updated: 2026/09/05 16:30:35 by okaymazo         ###   ########.fr       */
+/*   Updated: 2026/09/08 09:59:02 by okaymazo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ typedef struct s_stack
 	int	size;
 }	t_stack;
 
-void	sa(t_stack *stack_a);
+double	calculate_disorder(t_stack *a);
+int		is_sorted(int *array, int size);
 
 int		stack_size(int argc, char **argv, t_options *opt);
 void	fill_stack(int argc, char **argv, t_options *opt, int *stack_a);
@@ -48,5 +49,17 @@ void	init_options(t_options *opts);
 int		ft_strcmp(char *s1, char *s2);
 int		parse_flag(char *arg, t_options *opts);
 void	verify_strategies(t_options *opts);
+
+void	sa(t_stack *stack_a);
+void	sb(t_stack *stack_b);
+void	ss(t_stack *stack_a, t_stack *stack_b);
+void	ra(t_stack *stack_a);
+void	rb(t_stack *stack_b);
+void	rr(t_stack *stack_a, t_stack *stack_b);
+void	rra(t_stack *stack_a);
+void	rrb(t_stack *stack_b);
+void	rrr(t_stack *stack_a, t_stack *stack_b);
+void	pa(t_stack *stack_a, t_stack *stack_b);
+void	pb(t_stack *stack_a, t_stack *stack_b);
 
 #endif

@@ -6,50 +6,73 @@
 /*   By: okaymazo@student.42istanbul.com.tr         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/31 07:02:02 by abdkaya           #+#    #+#             */
-/*   Updated: 2026/09/05 16:13:31 by okaymazo         ###   ########.fr       */
+/*   Updated: 2026/09/08 10:23:23 by okaymazo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-int	is_sorted(int *stack_a, int size)
+int	is_sorted(int *array, int size)
 {
 	int	i;
 
-	if (size <= 1)
-		return (1);
 	i = 0;
 	while (i < size - 1)
 	{
-		if (stack_a[i] > stack_a[i + 1])
+		if (array[i] > array[i + 1])
 			return (0);
 		i++;
 	}
 	return (1);
 }
 
-double	compute_disorder(int *stack_a, int size)
+double	calculate_disorder(t_stack *a)
 {
-	long long	mistakes;
-	long long	total_pairs;
-	int			i;
-	int			j;
+	int		i;
+	int		j;
+	double	total;
+	double	mistakes;
 
-	if (size <= 1)
-		return (0, 0);
 	mistakes = 0;
-	total_pairs = ((long long)size * (size - 1)) / 2;
+	total = 0;
 	i = 0;
-	while (i < size - 1)
+	while (i < a->size - 1)
 	{
 		j = i + 1;
-		while (j < size)
+		while (j < a->size - 1)
 		{
-			if (stack_a[i] > stack_a[j])
+			total++;
+			if (a->array[i] > a->array[j])
 				mistakes++;
 			j++;
 		}
 		i++;
 	}
-	return ((double)mistakes / (double)total_pairs);
+	if (total == 0)
+		return (0);
+	return (mistakes / total);
+}
+
+void	apply_strategy(t_options *opt, t_stack *a, t_stack *b)
+{
+	double	disorder;
+
+	if (is_sorted(a->array, a->size))
+		return ;
+	if (opt->simple)
+		sort_simple(a, b);
+	else if (opt->medium)
+		sort_medium(a, b);
+	else if (opt->complex)
+		sort_complex(a, b);
+	else
+	{
+		disorder = calculate_disorder(a);
+		if (disorder < 0.2)
+			sort_simple(a, b);
+		else if (disorder < 0.5)
+			sort_medium(a, b);
+		else
+			sort_complex(a, b);
+	}
 }

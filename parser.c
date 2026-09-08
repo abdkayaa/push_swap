@@ -6,7 +6,7 @@
 /*   By: okaymazo@student.42istanbul.com.tr         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/04 21:12:11 by okaymazo          #+#    #+#             */
-/*   Updated: 2026/09/05 16:45:05 by okaymazo         ###   ########.fr       */
+/*   Updated: 2026/09/07 17:52:11 by okaymazo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,26 +90,4 @@ void	ft_check_duplicates(int *stack, int size)
 		}
 		i++;
 	}
-}
-
-int	main(int argc, char **argv)
-{
-	t_options	opt;
-	int			*stack_a;
-	int			size;
-
-	if (argc < 2)
-		return (0);
-	init_options(&opt);
-	size = stack_size(argc, argv, &opt);
-	if (size == 0)
-		return (0);
-	stack_a = malloc(sizeof(int) * size);
-	if (!stack_a)
-		return (1);
-	fill_stack(argc, argv, &opt, stack_a);
-	verify_strategies(&opt);
-	ft_check_duplicates(stack_a, size);
-	free(stack_a);
-	return (0);
 }
