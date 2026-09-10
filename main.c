@@ -6,7 +6,7 @@
 /*   By: abdkaya <abdkaya@student.42istanbul.com.tr>  +#+  +#+       +#+      */
 /*                                                  +#+#+#+#+#+   +#+         */
 /*   Created: 2026/09/07 17:51:05 by okaymazo            #+#    #+#           */
-/*   Updated: 2026/09/10 17:55:21 by abdkaya            ###   ########.fr     */
+/*   Updated: 2026/09/10 20:27:59 by abdkaya            ###   ########.fr     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,19 @@ int	main(int argc, char **argv)
 	t_options	opt;
 	t_stack		stack_a;
 	t_stack		stack_b;
+	t_bench		bench;
 
 	if (argc < 2)
 		return (0);
 	init_options(&opt);
+	init_bench(&bench); // Tum operation sayaclarini sifirlar.
 	init_stacks(argc, argv, &opt, &stack_a, &stack_b);
+	stack_a.bench = &bench; // A'nin bench pointer'ini ortak sayaca baglar.
+	stack_b.bench = &bench; // B'nin bench pointer'ini ayni sayaca baglar.
 	apply_strategy(&opt, &stack_a, &stack_b);
+	// Sorting bittikten sonra sayaçlari raporlar; rapor stderr'e gider.
+	if (opt.bench)
+		print_benchmark(&bench);
 	free(stack_a.array);
 	free(stack_b.array);
 	return (0);

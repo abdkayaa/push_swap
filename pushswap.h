@@ -6,7 +6,7 @@
 /*   By: abdkaya <abdkaya@student.42istanbul.com.tr>  +#+  +#+       +#+      */
 /*                                                  +#+#+#+#+#+   +#+         */
 /*   Created: 2026/09/05 16:26:35 by okaymazo            #+#    #+#           */
-/*   Updated: 2026/09/10 17:43:49 by abdkaya            ###   ########.fr     */
+/*   Updated: 2026/09/10 20:27:59 by abdkaya            ###   ########.fr     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,10 @@ typedef struct s_stack
 	t_bench *bench;
 }	t_stack;
 
+void	init_bench(t_bench *bench); // Benchmark sayaçlarini sifirlar.
+int		bench_total(t_bench *bench); // Tum operation sayaçlarini toplar.
+void	print_benchmark(t_bench *bench); // Sonuclari stderr'e yazdirir.
+
 int		is_sorted(int *array, int size);
 double	calculate_disorder(t_stack *a);
 void	apply_strategy(t_options *opt, t_stack *a, t_stack *b);
@@ -59,6 +63,7 @@ void	init_options(t_options *opts);
 int		parse_flag(char *arg, t_options *opts);
 void	verify_strategies(t_options *opts);
 
+void	ft_putnbr_fd(int n, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	error_exit(void);
 int		is_valid_number(char *str);

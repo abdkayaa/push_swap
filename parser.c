@@ -1,27 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: okaymazo@student.42istanbul.com.tr         +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/04 21:12:11 by okaymazo          #+#    #+#             */
-/*   Updated: 2026/09/08 14:08:36 by okaymazo         ###   ########.fr       */
+/*                                                          :::      :::::::: */
+/*   parser.c                                             :+:      :+:    :+: */
+/*                                                      +#+ +#+         +#+   */
+/*   By: abdkaya <abdkaya@student.42istanbul.com.tr>  +#+  +#+       +#+      */
+/*                                                  +#+#+#+#+#+   +#+         */
+/*   Created: 2026/09/04 21:12:11 by okaymazo            #+#    #+#           */
+/*   Updated: 2026/09/10 20:20:14 by abdkaya            ###   ########.fr     */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
-
-void	ft_putstr_fd(char *s, int fd)
-{
-	if (!s)
-		return ;
-	while (*s)
-	{
-		write (fd, s, 1);
-		s++;
-	}
-}
 
 void	error_exit(void)
 {

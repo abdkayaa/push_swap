@@ -6,7 +6,7 @@
 /*   By: abdkaya <abdkaya@student.42istanbul.com.tr>  +#+  +#+       +#+      */
 /*                                                  +#+#+#+#+#+   +#+         */
 /*   Created: 2026/09/08 08:27:13 by okaymazo            #+#    #+#           */
-/*   Updated: 2026/09/10 19:29:45 by abdkaya            ###   ########.fr     */
+/*   Updated: 2026/09/10 20:27:59 by abdkaya            ###   ########.fr     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	rra(t_stack *stack_a)
 {
 	if (rev_rotate(stack_a))
 	{
-		stack_a->bench->rra++; 
+		stack_a->bench->rra++; // Basarili rra islemini sayar.
 		ft_putstr_fd("rra\n", 1);
 	}
 }
@@ -43,7 +43,7 @@ void	rrb(t_stack *stack_b)
 {
 	if (rev_rotate(stack_b))
 	{
-		stack_b->bench->rrb++; // burada değiştirdim
+		stack_b->bench->rrb++; // Basarili rrb islemini sayar.
 		ft_putstr_fd("rrb\n", 1);
 	}
 }
@@ -54,6 +54,6 @@ void	rrr(t_stack *stack_a, t_stack *stack_b)
 		return ;
 	rev_rotate(stack_a);
 	rev_rotate(stack_b);
-	stack_a->bench->rrr++; // burada değiştirdim
-	ft_putstr_fd("rrr\n", 1); // burada değiştirdim
+	stack_a->bench->rrr++; // Iki stack'te basarili rrr islemini sayar.
+	ft_putstr_fd("rrr\n", 1); // Yapilan operation'i stdout'a yazdirir.
 }

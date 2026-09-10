@@ -6,7 +6,7 @@
 /*   By: abdkaya <abdkaya@student.42istanbul.com.tr>  +#+  +#+       +#+      */
 /*                                                  +#+#+#+#+#+   +#+         */
 /*   Created: 2026/09/07 18:50:13 by okaymazo            #+#    #+#           */
-/*   Updated: 2026/09/10 19:29:53 by abdkaya            ###   ########.fr     */
+/*   Updated: 2026/09/10 20:27:59 by abdkaya            ###   ########.fr     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ra(t_stack *stack_a)
 {
 	if (rotate(stack_a))
 	{
-		stack_a->bench->ra++; 
+		stack_a->bench->ra++; // Basarili ra islemini sayar.
 		ft_putstr_fd("ra\n", 1);
 	}
 }
@@ -43,7 +43,7 @@ void	rb(t_stack *stack_b)
 {
 	if (rotate(stack_b))
 	{
-		stack_b->bench->rb++; 
+		stack_b->bench->rb++; // Basarili rb islemini sayar.
 		ft_putstr_fd("rb\n", 1);
 	}
 }
@@ -54,6 +54,6 @@ void	rr(t_stack *stack_a, t_stack *stack_b)
 		return ;
 	rotate(stack_a);
 	rotate(stack_b);
-	stack_a->bench->rr++; 
-	ft_putstr_fd("rr\n", 1); /
+	stack_a->bench->rr++; // Iki stack'te basarili rr islemini sayar.
+	ft_putstr_fd("rr\n", 1);
 }
