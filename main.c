@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: okaymazo@student.42istanbul.com.tr         +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/07 17:51:05 by okaymazo          #+#    #+#             */
-/*   Updated: 2026/09/07 17:58:48 by okaymazo         ###   ########.fr       */
+/*                                                          :::      :::::::: */
+/*   main.c                                               :+:      :+:    :+: */
+/*                                                      +#+ +#+         +#+   */
+/*   By: abdkaya <abdkaya@student.42istanbul.com.tr>  +#+  +#+       +#+      */
+/*                                                  +#+#+#+#+#+   +#+         */
+/*   Created: 2026/09/07 17:51:05 by okaymazo            #+#    #+#           */
+/*   Updated: 2026/09/10 17:55:21 by abdkaya            ###   ########.fr     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	init_stacks(int argc, char **argv, t_options *opt, t_stack *a, t_sta
 	{
 		free(a->array);
 		free(b->array);
-		exit(1);
+		error_exit();
 	}
 	a->size = size;
 	b->size = 0;
@@ -45,6 +45,7 @@ int	main(int argc, char **argv)
 		return (0);
 	init_options(&opt);
 	init_stacks(argc, argv, &opt, &stack_a, &stack_b);
+	apply_strategy(&opt, &stack_a, &stack_b);
 	free(stack_a.array);
 	free(stack_b.array);
 	return (0);

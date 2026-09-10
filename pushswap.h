@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   pushswap.h                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: okaymazo@student.42istanbul.com.tr         +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/05 16:26:35 by okaymazo          #+#    #+#             */
-/*   Updated: 2026/09/08 14:09:05 by okaymazo         ###   ########.fr       */
+/*                                                          :::      :::::::: */
+/*   pushswap.h                                           :+:      :+:    :+: */
+/*                                                      +#+ +#+         +#+   */
+/*   By: abdkaya <abdkaya@student.42istanbul.com.tr>  +#+  +#+       +#+      */
+/*                                                  +#+#+#+#+#+   +#+         */
+/*   Created: 2026/09/05 16:26:35 by okaymazo            #+#    #+#           */
+/*   Updated: 2026/09/10 17:43:49 by abdkaya            ###   ########.fr     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,20 @@
 # include <unistd.h>
 # include <limits.h>
 
+typedef struct s_bench
+{
+	int	sa;
+    int	sb;
+    int	ss;
+    int	pa;
+    int	pb;
+    int	ra;
+    int	rb;
+    int	rr;
+    int	rra;
+    int	rrb;
+    int	rrr;
+}	t_bench;
 typedef struct s_options
 {
 	int	simple;
@@ -30,6 +44,7 @@ typedef struct s_stack
 {
 	int	*array;
 	int	size;
+	t_bench *bench;
 }	t_stack;
 
 int		is_sorted(int *array, int size);

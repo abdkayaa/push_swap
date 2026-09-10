@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   rotates.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: okaymazo@student.42istanbul.com.tr         +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/07 18:50:13 by okaymazo          #+#    #+#             */
-/*   Updated: 2026/09/08 08:53:45 by okaymazo         ###   ########.fr       */
+/*                                                          :::      :::::::: */
+/*   rotates.c                                            :+:      :+:    :+: */
+/*                                                      +#+ +#+         +#+   */
+/*   By: abdkaya <abdkaya@student.42istanbul.com.tr>  +#+  +#+       +#+      */
+/*                                                  +#+#+#+#+#+   +#+         */
+/*   Created: 2026/09/07 18:50:13 by okaymazo            #+#    #+#           */
+/*   Updated: 2026/09/10 19:29:53 by abdkaya            ###   ########.fr     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,27 @@ static int	rotate(t_stack *stack)
 void	ra(t_stack *stack_a)
 {
 	if (rotate(stack_a))
+	{
+		stack_a->bench->ra++; 
 		ft_putstr_fd("ra\n", 1);
+	}
 }
 
 void	rb(t_stack *stack_b)
 {
 	if (rotate(stack_b))
+	{
+		stack_b->bench->rb++; 
 		ft_putstr_fd("rb\n", 1);
+	}
 }
 
 void	rr(t_stack *stack_a, t_stack *stack_b)
 {
-	if (rotate(stack_a) && rotate(stack_b))
-		ft_putstr_fd("rr\n", 1);
+	if (stack_a->size < 2 || stack_b->size < 2)
+		return ;
+	rotate(stack_a);
+	rotate(stack_b);
+	stack_a->bench->rr++; 
+	ft_putstr_fd("rr\n", 1); /
 }

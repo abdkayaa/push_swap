@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   rev_rotates.c                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: okaymazo@student.42istanbul.com.tr         +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/08 08:27:13 by okaymazo          #+#    #+#             */
-/*   Updated: 2026/09/08 08:53:33 by okaymazo         ###   ########.fr       */
+/*                                                          :::      :::::::: */
+/*   rev_rotates.c                                        :+:      :+:    :+: */
+/*                                                      +#+ +#+         +#+   */
+/*   By: abdkaya <abdkaya@student.42istanbul.com.tr>  +#+  +#+       +#+      */
+/*                                                  +#+#+#+#+#+   +#+         */
+/*   Created: 2026/09/08 08:27:13 by okaymazo            #+#    #+#           */
+/*   Updated: 2026/09/10 19:29:45 by abdkaya            ###   ########.fr     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,27 @@ static int	rev_rotate(t_stack *stack)
 void	rra(t_stack *stack_a)
 {
 	if (rev_rotate(stack_a))
+	{
+		stack_a->bench->rra++; 
 		ft_putstr_fd("rra\n", 1);
+	}
 }
 
 void	rrb(t_stack *stack_b)
 {
 	if (rev_rotate(stack_b))
+	{
+		stack_b->bench->rrb++; // burada değiştirdim
 		ft_putstr_fd("rrb\n", 1);
+	}
 }
 
 void	rrr(t_stack *stack_a, t_stack *stack_b)
 {
-	if (rev_rotate(stack_a) && rev_rotate(stack_b))
-		ft_putstr_fd("rrr\n", 1);
+	if (stack_a->size < 2 || stack_b->size < 2)
+		return ;
+	rev_rotate(stack_a);
+	rev_rotate(stack_b);
+	stack_a->bench->rrr++; // burada değiştirdim
+	ft_putstr_fd("rrr\n", 1); // burada değiştirdim
 }

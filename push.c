@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: okaymazo@student.42istanbul.com.tr         +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/08 08:38:15 by okaymazo          #+#    #+#             */
-/*   Updated: 2026/09/08 08:54:29 by okaymazo         ###   ########.fr       */
+/*                                                          :::      :::::::: */
+/*   push.c                                               :+:      :+:    :+: */
+/*                                                      +#+ +#+         +#+   */
+/*   By: abdkaya <abdkaya@student.42istanbul.com.tr>  +#+  +#+       +#+      */
+/*                                                  +#+#+#+#+#+   +#+         */
+/*   Created: 2026/09/08 08:38:15 by okaymazo            #+#    #+#           */
+/*   Updated: 2026/09/10 19:29:36 by abdkaya            ###   ########.fr     */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
+	stack_a->bench->pa++; 
 
 void	pa(t_stack *stack_a, t_stack *stack_b)
 {
 	int	i;
+	stack_a->bench->pb++; 
 
 	if (stack_b->size <= 0)
 		return ;
@@ -33,6 +35,7 @@ void	pa(t_stack *stack_a, t_stack *stack_b)
 		i++;
 	}
 	stack_b->size--;
+	stack_a->bench->pa++;
 	ft_putstr_fd("pa\n", 1);
 }
 
@@ -57,5 +60,7 @@ void	pb(t_stack *stack_a, t_stack *stack_b)
 		i++;
 	}
 	stack_a->size--;
+	stack_b->bench->pb++;
+
 	ft_putstr_fd("pb\n", 1);
 }
