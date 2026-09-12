@@ -6,7 +6,7 @@
 /*   By: abdkaya <abdkaya@student.42istanbul.com.tr>  +#+  +#+       +#+      */
 /*                                                  +#+#+#+#+#+   +#+         */
 /*   Created: 2026/09/05 16:26:35 by okaymazo            #+#    #+#           */
-/*   Updated: 2026/09/12 16:00:24 by abdkaya            ###   ########.fr     */
+/*   Updated: 2026/09/12 21:39:50 by abdkaya            ###   ########.fr     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,10 @@ void	error_exit(void);
 int		is_valid_number(char *str);
 long	ft_atoi(char *num);
 void	ft_check_duplicates(int *stack, int size);
+
+void	sort_simple(t_stack *a, t_stack *b);
+void	sort_medium(t_stack *a, t_stack *b);
+void	sort_complex(t_stack *a, t_stack *b);
 
 void	sa(t_stack *stack_a);
 void	sb(t_stack *stack_b);
