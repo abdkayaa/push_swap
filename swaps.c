@@ -6,7 +6,7 @@
 /*   By: abdkaya <abdkaya@student.42istanbul.com.tr>  +#+  +#+       +#+      */
 /*                                                  +#+#+#+#+#+   +#+         */
 /*   Created: 2026/09/07 18:33:22 by okaymazo            #+#    #+#           */
-/*   Updated: 2026/09/10 20:27:59 by abdkaya            ###   ########.fr     */
+/*   Updated: 2026/09/12 05:35:30 by abdkaya            ###   ########.fr     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	sa(t_stack *stack_a)
 {
 	if (swap(stack_a))
 	{
-		stack_a->bench->sa++; // Basarili sa islemini sayar.
+		stack_a->bench->sa++;
 		ft_putstr_fd("sa\n", 1);
 	}
 }
@@ -37,7 +37,7 @@ void	sb(t_stack *stack_b)
 {
 	if (swap(stack_b))
 	{
-		stack_b->bench->sb++; // Basarili sb islemini sayar.
+		stack_b->bench->sb++;
 		ft_putstr_fd("sb\n", 1);
 	}
 }
@@ -48,6 +48,6 @@ void	ss(t_stack *stack_a, t_stack *stack_b)
 		return ;
 	swap(stack_a);
 	swap(stack_b);
-	stack_a->bench->ss++; // Iki stack'te basarili ss islemini sayar.
-	ft_putstr_fd("ss\n", 1); // Yapilan operation'i stdout'a yazdirir.
+	stack_a->bench->ss++;
+	ft_putstr_fd("ss\n", 1);
 }

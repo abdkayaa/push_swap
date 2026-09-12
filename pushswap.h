@@ -6,7 +6,7 @@
 /*   By: abdkaya <abdkaya@student.42istanbul.com.tr>  +#+  +#+       +#+      */
 /*                                                  +#+#+#+#+#+   +#+         */
 /*   Created: 2026/09/05 16:26:35 by okaymazo            #+#    #+#           */
-/*   Updated: 2026/09/10 20:27:59 by abdkaya            ###   ########.fr     */
+/*   Updated: 2026/09/12 16:00:24 by abdkaya            ###   ########.fr     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,18 @@
 
 typedef struct s_bench
 {
-	int	sa;
-    int	sb;
-    int	ss;
-    int	pa;
-    int	pb;
-    int	ra;
-    int	rb;
-    int	rr;
-    int	rra;
-    int	rrb;
-    int	rrr;
+	int		sa;
+	int		sb;
+	int		ss;
+	int		pa;
+	int		pb;
+	int		ra;
+	int		rb;
+	int		rr;
+	int		rra;
+	int		rrb;
+	int		rrr;
+	double	disorder;
 }	t_bench;
 typedef struct s_options
 {
@@ -42,9 +43,9 @@ typedef struct s_options
 
 typedef struct s_stack
 {
-	int	*array;
-	int	size;
-	t_bench *bench;
+	int		*array;
+	int		size;
+	t_bench	*bench;
 }	t_stack;
 
 void	init_bench(t_bench *bench); // Benchmark sayaçlarini sifirlar.

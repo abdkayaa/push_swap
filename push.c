@@ -6,7 +6,7 @@
 /*   By: abdkaya <abdkaya@student.42istanbul.com.tr>  +#+  +#+       +#+      */
 /*                                                  +#+#+#+#+#+   +#+         */
 /*   Created: 2026/09/08 08:38:15 by okaymazo            #+#    #+#           */
-/*   Updated: 2026/09/10 20:27:59 by abdkaya            ###   ########.fr     */
+/*   Updated: 2026/09/12 05:37:46 by abdkaya            ###   ########.fr     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	pa(t_stack *stack_a, t_stack *stack_b)
 		i++;
 	}
 	stack_b->size--;
-	stack_a->bench->pa++; // B'den A'ya basarili pa sayisini artirir.
+	stack_a->bench->pa++;
 	ft_putstr_fd("pa\n", 1);
 }
 
@@ -58,7 +58,6 @@ void	pb(t_stack *stack_a, t_stack *stack_b)
 		i++;
 	}
 	stack_a->size--;
-	stack_b->bench->pb++; // A'dan B'ye basarili pb sayisini artirir.
-
+	stack_b->bench->pb++;
 	ft_putstr_fd("pb\n", 1);
 }
