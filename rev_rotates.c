@@ -6,7 +6,7 @@
 /*   By: abdkaya <abdkaya@student.42istanbul.com.tr>  +#+  +#+       +#+      */
 /*                                                  +#+#+#+#+#+   +#+         */
 /*   Created: 2026/09/08 08:27:13 by okaymazo            #+#    #+#           */
-/*   Updated: 2026/09/12 05:35:30 by abdkaya            ###   ########.fr     */
+/*   Updated: 2026/09/13 19:15:17 by abdkaya            ###   ########.fr     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	rev_rotate(t_stack *stack)
 	if (stack->size < 2)
 		return (0);
 	tmp = stack->array[stack->size - 1];
-	i = stack->size;
+	i = stack->size - 1;
 	while (i > 0)
 	{
 		stack->array[i] = stack->array[i - 1];

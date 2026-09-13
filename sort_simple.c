@@ -6,7 +6,7 @@
 /*   By: abdkaya <abdkaya@student.42istanbul.com.tr>  +#+  +#+       +#+      */
 /*                                                  +#+#+#+#+#+   +#+         */
 /*   Created: 2026/09/08 14:22:46 by abdkaya             #+#    #+#           */
-/*   Updated: 2026/09/12 16:18:40 by abdkaya            ###   ########.fr     */
+/*   Updated: 2026/09/13 00:11:26 by abdkaya            ###   ########.fr     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,30 @@ int min_index(t_stack *a)
     }
     return (min);
 }
-void    three_sort(t_stack *a)
+void	three_sort(t_stack *a)
 {
-    int index;
-
-    index = min_index(a);
-    if (a->size == 2 && a->array[1] > a->array[0])
-    {
-        if(a->array[0] > a->array[1])
-        {
+	if (a->size == 2 && a->array[0] > a->array[1])
+		sa(a);
+	if (a->size < 3)
+		return ;
+	if (min_index(a) == 0 && a->array[1] > a->array[2])
+	{
+		rra(a);
+		sa(a);
+	}
+	else if (min_index(a) == 1)
+	{
+		if (a->array[0] < a->array[2])
 			sa(a);
-			rra(a);
-		}
-        else
-            rra(a);
-    }
+		else
+			ra(a);
+	}
+	else if (min_index(a) == 2)
+	{
+		if (a->array[0] > a->array[1])
+			sa(a);
+		rra(a);
+	}
 }
 // 6 8 5
 void    move_top(t_stack *a, int index)
