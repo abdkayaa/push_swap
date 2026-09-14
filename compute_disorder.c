@@ -6,7 +6,7 @@
 /*   By: abdkaya <abdkaya@student.42istanbul.com.tr>  +#+  +#+       +#+      */
 /*                                                  +#+#+#+#+#+   +#+         */
 /*   Created: 2026/08/31 07:02:02 by abdkaya             #+#    #+#           */
-/*   Updated: 2026/09/14 07:17:33 by abdkaya            ###   ########.fr     */
+/*   Updated: 2026/09/14 13:35:18 by abdkaya            ###   ########.fr     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ static int	pick_mode(t_options *opt, t_stack *a)
 	if (opt->complex)
 		return (2);
 	disorder = calculate_disorder(a);
+	if (a->size <= 5)
+		return (0);
 	if (disorder < 0.2)
 		return (0);
 	if (disorder < 0.5)

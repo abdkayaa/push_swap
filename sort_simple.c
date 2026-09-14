@@ -6,7 +6,7 @@
 /*   By: abdkaya <abdkaya@student.42istanbul.com.tr>  +#+  +#+       +#+      */
 /*                                                  +#+#+#+#+#+   +#+         */
 /*   Created: 2026/09/08 14:22:46 by abdkaya             #+#    #+#           */
-/*   Updated: 2026/09/14 07:22:42 by abdkaya            ###   ########.fr     */
+/*   Updated: 2026/09/14 13:34:48 by abdkaya            ###   ########.fr     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,20 +75,19 @@ void    move_top(t_stack *a, int index)
     }
 }
 
-void    selection_sort(t_stack *a, t_stack *b)
+void	selection_sort(t_stack *a, t_stack *b)
 {
-    int index;
+	int	index;
 
-    while(a->size > 3)
-    {
-        index = min_index(a);
-        move_top(a, index);
-        pb(a, b);
-    }
-    three_sort(a);
-    while (a->size > 0)
-        pa(a, b);
-
+	while (a->size > 3)
+	{
+		index = min_index(a);
+		move_top(a, index);
+		pb(a, b);
+	}
+	three_sort(a);
+	while (b->size > 0)
+		pa(a, b);
 }
 
 void	sort_simple(t_stack *a, t_stack *b)
