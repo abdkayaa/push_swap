@@ -6,7 +6,7 @@
 /*   By: abdkaya <abdkaya@student.42istanbul.com.tr>  +#+  +#+       +#+      */
 /*                                                  +#+#+#+#+#+   +#+         */
 /*   Created: 2026/09/10 19:37:45 by abdkaya             #+#    #+#           */
-/*   Updated: 2026/09/14 05:20:20 by abdkaya            ###   ########.fr     */
+/*   Updated: 2026/09/12 16:20:17 by abdkaya            ###   ########.fr     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ void	init_bench(t_bench *bench)
 	bench->rra = 0;
 	bench->rrb = 0;
 	bench->rrr = 0;
-	bench->mode = 0;
-	bench->adaptive = 0;
 }
 
 int	bench_total(t_bench *bench)
@@ -43,10 +41,27 @@ static void	print_metric(char *label, int val)
 	ft_putstr_fd("\n", 2);
 }
 
+static void	print_disorder(double disorder)
+{
+	int	value;
+	int	integer_part;
+	int	decimal_part;
+
+	value = (int)(disorder * 10000 + 0.5);
+	integer_part = value / 100;
+	decimal_part = value % 100;
+	ft_putstr_fd("[bench] disorder: ", 2);
+	ft_putnbr_fd(integer_part,2);
+	ft_putstr_fd(".", 2);
+	if (decimal_part < 10)
+		ft_putstr_fd("0",2);
+	ft_putnbr_fd(decimal_part,2);
+	ft_putstr_fd("%\n",2);
+}
+
 void	print_benchmark(t_bench *bench)
 {
 	print_disorder(bench->disorder);
-	print_strategy(bench);
 	print_metric("[bench] operations: ", bench_total(bench));
 	print_metric("[bench] sa: ", bench->sa);
 	print_metric("[bench] sb: ", bench->sb);
