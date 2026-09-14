@@ -6,7 +6,7 @@
 /*   By: abdkaya <abdkaya@student.42istanbul.com.tr>  +#+  +#+       +#+      */
 /*                                                  +#+#+#+#+#+   +#+         */
 /*   Created: 2026/09/08 14:23:17 by abdkaya             #+#    #+#           */
-/*   Updated: 2026/09/13 19:54:24 by abdkaya            ###   ########.fr     */
+/*   Updated: 2026/09/14 13:44:39 by abdkaya            ###   ########.fr     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,20 @@ static int	find_max(t_stack *s, int chunk, int k)
 		i++;
 	}
 	return (best);
+}
+
+static int	has_chunk(t_stack *b, int chunk, int k)
+{
+	int	i;
+
+	i = 0;
+	while (i < b->size)
+	{
+		if (b->array[i] / k == chunk)
+			return (1);
+		i++;
+	}
+	return (0);
 }
 
 static void	push_chunks(t_stack *a, t_stack *b, int k)
@@ -63,12 +77,14 @@ static void	push_back(t_stack *a, t_stack *b, int k)
 	int	chunk;
 	int	idx;
 
+	chunk = (b->size - 1) / k;
 	while (b->size > 0)
 	{
-		chunk = b->array[0] / k;
 		idx = find_max(b, chunk, k);
 		rotate_to_top(b, idx, 1);
 		pa(a, b);
+		if (!has_chunk(b, chunk, k))
+			chunk--;
 	}
 }
 
