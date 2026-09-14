@@ -6,11 +6,25 @@
 /*   By: okaymazo@student.42istanbul.com.tr         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/05 16:01:53 by okaymazo          #+#    #+#             */
-/*   Updated: 2026/09/14 16:48:52 by okaymazo         ###   ########.fr       */
+/*   Updated: 2026/09/14 17:02:45 by okaymazo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
+
+static int	count_and_free(char **strs)
+{
+	int	j;
+
+	j = 0;
+	while (strs[j])
+	{
+		free(strs[j]);
+		j++;
+	}
+	free(strs);
+	return (j);
+}
 
 static void	ft_free_split(char **split)
 {
@@ -29,29 +43,29 @@ static void	ft_free_split(char **split)
 
 int	stack_size(int argc, char **argv, t_options *opt)
 {
-	int		size;
 	int		i;
-	int		j;
-	char	**split;
+	int		count;
+	char	**strs;
 
-	size = 0;
 	i = 1;
+	count = 0;
 	while (i < argc)
 	{
-		if (!parse_flag(argv[i], opt))
+		if (parse_flag(argv[i], opt))
 		{
-			split = ft_split(argv[i], ' ');
-			if (!split)
-				error_exit();
-			j = 0;
-			while (split[j])
-				j++;
-			size += j;
-			ft_free_split(split);
+			i++;
+			continue ;
 		}
+		strs = ft_split(argv[i], ' ');
+		if (!strs || !strs[0])
+		{
+			free(strs);
+			error_exit();
+		}
+		count += count_and_free(strs);
 		i++;
 	}
-	return (size);
+	return (count);
 }
 
 static int	check_and_store(char *arg, int *stack_a, int j)

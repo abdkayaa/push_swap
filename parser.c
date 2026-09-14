@@ -6,7 +6,7 @@
 /*   By: okaymazo@student.42istanbul.com.tr         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/04 21:12:11 by okaymazo          #+#    #+#             */
-/*   Updated: 2026/09/14 16:49:05 by okaymazo         ###   ########.fr       */
+/*   Updated: 2026/09/14 17:04:04 by okaymazo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,18 @@ void	ft_check_duplicates(int *stack, int size)
 		}
 		i++;
 	}
+}
+
+int	is_empty_str(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] != ' ')
+			return (0);
+		i++;
+	}
+	return (1);
 }
