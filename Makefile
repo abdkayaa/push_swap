@@ -3,11 +3,12 @@ NAME = push_swap.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = bench.c \
+SRC = 	bench_utils.c \
 		compute_disorder.c  \
 		main_utils.c \
 		main.c \
 		medium_utils.c \
+		bench.c \
 		options.c \
 		parser.c \
 		push.c \
@@ -18,7 +19,7 @@ SRC = bench.c \
 		sort_medium.c \
 		sort_simple.c \
 		split.c \
-		swaps.c
+		swaps.c 
 
 
 OBJ = $(SRC:.c=.o)

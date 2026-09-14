@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                          :::      :::::::: */
-/*   pushswap.h                                           :+:      :+:    :+: */
-/*                                                      +#+ +#+         +#+   */
-/*   By: abdkaya <abdkaya@student.42istanbul.com.tr>  +#+  +#+       +#+      */
-/*                                                  +#+#+#+#+#+   +#+         */
-/*   Created: 2026/09/05 16:26:35 by okaymazo            #+#    #+#           */
-/*   Updated: 2026/09/14 05:19:36 by abdkaya            ###   ########.fr     */
+/*                                                        :::      ::::::::   */
+/*   pushswap.h                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: okaymazo@student.42istanbul.com.tr         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/09/05 16:26:35 by okaymazo          #+#    #+#             */
+/*   Updated: 2026/09/14 16:44:27 by okaymazo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ typedef struct s_bench
 	int		rrb;
 	int		rrr;
 	double	disorder;
-	int	mode;
-	int	adaptive;
+	int		mode;
+	int		adaptive;
 }	t_bench;
 typedef struct s_options
 {
@@ -60,6 +60,7 @@ int		is_sorted(int *array, int size);
 double	calculate_disorder(t_stack *a);
 void	apply_strategy(t_options *opt, t_stack *a, t_stack *b);
 
+char	**ft_split(char const *s, char c);
 int		stack_size(int argc, char **argv, t_options *opt);
 void	fill_stack(int argc, char **argv, t_options *opt, int *stack_a);
 
@@ -72,7 +73,7 @@ void	ft_putnbr_fd(int n, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	error_exit(void);
 int		is_valid_number(char *str);
-long	ft_atoi(char *num);
+long	ft_atol(char *num);
 void	ft_check_duplicates(int *stack, int size);
 
 void	sort_simple(t_stack *a, t_stack *b);

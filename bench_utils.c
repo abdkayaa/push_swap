@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                          :::      :::::::: */
-/*   bench_utils.c                                        :+:      :+:    :+: */
-/*                                                      +#+ +#+         +#+   */
-/*   By: abdkaya <abdkaya@student.42istanbul.com.tr>  +#+  +#+       +#+      */
-/*                                                  +#+#+#+#+#+   +#+         */
-/*   Created: 2026/09/14 05:16:02 by abdkaya             #+#    #+#           */
-/*   Updated: 2026/09/14 05:18:32 by abdkaya            ###   ########.fr     */
+/*                                                        :::      ::::::::   */
+/*   bench_utils.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: okaymazo@student.42istanbul.com.tr         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/09/14 05:16:02 by abdkaya           #+#    #+#             */
+/*   Updated: 2026/09/14 16:48:47 by okaymazo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ void	print_disorder(double disorder)
 	integer_part = value / 100;
 	decimal_part = value % 100;
 	ft_putstr_fd("[bench] disorder: ", 2);
-	ft_putnbr_fd(integer_part,2);
+	ft_putnbr_fd(integer_part, 2);
 	ft_putstr_fd(".", 2);
 	if (decimal_part < 10)
-		ft_putstr_fd("0",2);
-	ft_putnbr_fd(decimal_part,2);
-	ft_putstr_fd("%\n",2);
+		ft_putstr_fd("0", 2);
+	ft_putnbr_fd(decimal_part, 2);
+	ft_putstr_fd("%\n", 2);
 }
 
 void	print_strategy(t_bench *bench)

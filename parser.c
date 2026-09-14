@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                          :::      :::::::: */
-/*   parser.c                                             :+:      :+:    :+: */
-/*                                                      +#+ +#+         +#+   */
-/*   By: abdkaya <abdkaya@student.42istanbul.com.tr>  +#+  +#+       +#+      */
-/*                                                  +#+#+#+#+#+   +#+         */
-/*   Created: 2026/09/04 21:12:11 by okaymazo            #+#    #+#           */
-/*   Updated: 2026/09/10 20:20:14 by abdkaya            ###   ########.fr     */
+/*                                                        :::      ::::::::   */
+/*   parser.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: okaymazo@student.42istanbul.com.tr         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/09/04 21:12:11 by okaymazo          #+#    #+#             */
+/*   Updated: 2026/09/14 16:49:05 by okaymazo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	is_valid_number(char *str)
 	return (1);
 }
 
-long	ft_atoi(char *num)
+long	ft_atol(char *num)
 {
 	long	res;
 	int		sign;

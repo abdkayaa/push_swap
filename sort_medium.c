@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                          :::      :::::::: */
-/*   sort_medium.c                                        :+:      :+:    :+: */
-/*                                                      +#+ +#+         +#+   */
-/*   By: abdkaya <abdkaya@student.42istanbul.com.tr>  +#+  +#+       +#+      */
-/*                                                  +#+#+#+#+#+   +#+         */
-/*   Created: 2026/09/08 14:23:17 by abdkaya             #+#    #+#           */
-/*   Updated: 2026/09/14 13:44:39 by abdkaya            ###   ########.fr     */
+/*                                                        :::      ::::::::   */
+/*   sort_medium.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: okaymazo@student.42istanbul.com.tr         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/09/08 14:23:17 by abdkaya           #+#    #+#             */
+/*   Updated: 2026/09/14 16:49:19 by okaymazo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,11 +80,11 @@ static void	push_back(t_stack *a, t_stack *b, int k)
 	chunk = (b->size - 1) / k;
 	while (b->size > 0)
 	{
+		while (chunk >= 0 && !has_chunk(b, chunk, k))
+			chunk--;
 		idx = find_max(b, chunk, k);
 		rotate_to_top(b, idx, 1);
 		pa(a, b);
-		if (!has_chunk(b, chunk, k))
-			chunk--;
 	}
 }
 
