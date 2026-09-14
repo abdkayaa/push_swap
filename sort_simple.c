@@ -6,7 +6,7 @@
 /*   By: abdkaya <abdkaya@student.42istanbul.com.tr>  +#+  +#+       +#+      */
 /*                                                  +#+#+#+#+#+   +#+         */
 /*   Created: 2026/09/08 14:22:46 by abdkaya             #+#    #+#           */
-/*   Updated: 2026/09/14 01:13:53 by abdkaya            ###   ########.fr     */
+/*   Updated: 2026/09/14 07:22:42 by abdkaya            ###   ########.fr     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int min_index(t_stack *a)
     }
     return (min);
 }
+
 void	three_sort(t_stack *a)
 {
 	if (a->size == 2 && a->array[0] > a->array[1])
@@ -53,7 +54,7 @@ void	three_sort(t_stack *a)
 		rra(a);
 	}
 }
-// 6 8 5
+
 void    move_top(t_stack *a, int index)
 {
     if(index < (a->size/2))
@@ -73,7 +74,6 @@ void    move_top(t_stack *a, int index)
         }
     }
 }
-// minimum index buluyo 3 e kadar düşünce duruyor
 
 void    selection_sort(t_stack *a, t_stack *b)
 {
@@ -90,12 +90,19 @@ void    selection_sort(t_stack *a, t_stack *b)
         pa(a, b);
 
 }
-#include <stdio.h>
-int main()
+
+void	sort_simple(t_stack *a, t_stack *b)
 {
-    t_stack a;
-    int ar[]= {2,3,1,7,4,8,5};
-    a.array = ar;
-    a.size = 7;
-    printf("%d",min_index(&a));
+	if (a->size == 2)
+	{
+		if (a->array[0] > a->array[1])
+			sa(a);
+		return ;
+	}
+	if (a->size == 3)
+	{
+		three_sort(a);
+		return ;
+	}
+	selection_sort(a, b);
 }
