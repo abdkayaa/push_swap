@@ -6,7 +6,7 @@
 /*   By: abdkaya <abdkaya@student.42istanbul.com.tr>  +#+  +#+       +#+      */
 /*                                                  +#+#+#+#+#+   +#+         */
 /*   Created: 2026/09/05 16:26:35 by okaymazo            #+#    #+#           */
-/*   Updated: 2026/09/13 19:53:55 by abdkaya            ###   ########.fr     */
+/*   Updated: 2026/09/14 05:19:36 by abdkaya            ###   ########.fr     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ typedef struct s_bench
 	int		rrb;
 	int		rrr;
 	double	disorder;
+	int	mode;
+	int	adaptive;
 }	t_bench;
 typedef struct s_options
 {
@@ -48,9 +50,11 @@ typedef struct s_stack
 	t_bench	*bench;
 }	t_stack;
 
-void	init_bench(t_bench *bench); // Benchmark sayaçlarini sifirlar.
-int		bench_total(t_bench *bench); // Tum operation sayaçlarini toplar.
-void	print_benchmark(t_bench *bench); // Sonuclari stderr'e yazdirir.
+void	init_bench(t_bench *bench);
+int		bench_total(t_bench *bench);
+void	print_benchmark(t_bench *bench);
+void	print_strategy(t_bench *bench);
+void	print_disorder(double disorder);
 
 int		is_sorted(int *array, int size);
 double	calculate_disorder(t_stack *a);

@@ -6,7 +6,7 @@
 /*   By: abdkaya <abdkaya@student.42istanbul.com.tr>  +#+  +#+       +#+      */
 /*                                                  +#+#+#+#+#+   +#+         */
 /*   Created: 2026/08/31 07:02:02 by abdkaya             #+#    #+#           */
-/*   Updated: 2026/09/12 05:42:53 by abdkaya            ###   ########.fr     */
+/*   Updated: 2026/09/14 07:17:33 by abdkaya            ###   ########.fr     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,26 +53,37 @@ double	calculate_disorder(t_stack *a)
 	return (mistakes / total);
 }
 
-void	apply_strategy(t_options *opt, t_stack *a, t_stack *b)
+static int	pick_mode(t_options *opt, t_stack *a)
 {
 	double	disorder;
 
+	if (opt->simple)
+		return (0);
+	if (opt->medium)
+		return (1);
+	if (opt->complex)
+		return (2);
+	disorder = calculate_disorder(a);
+	if (disorder < 0.2)
+		return (0);
+	if (disorder < 0.5)
+		return (1);
+	return (2);
+}
+
+void	apply_strategy(t_options *opt, t_stack *a, t_stack *b)
+{
+	int	mode;
+
 	if (is_sorted(a->array, a->size))
 		return ;
-	if (opt->simple)
+	mode = pick_mode(opt, a);
+	a->bench->mode = mode;
+	a->bench->adaptive = !opt->simple && !opt->medium && !opt->complex;
+	if (mode == 0)
 		sort_simple(a, b);
-	else if (opt->medium)
+	else if (mode == 1)
 		sort_medium(a, b);
-	else if (opt->complex)
-		sort_complex(a, b);
 	else
-	{
-		disorder = calculate_disorder(a);
-		if (disorder < 0.2)
-			sort_simple(a, b);
-		else if (disorder < 0.5)
-			sort_medium(a, b);
-		else
-			sort_complex(a, b);
-	}
+		sort_complex(a, b);
 }

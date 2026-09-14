@@ -6,7 +6,7 @@
 /*   By: abdkaya <abdkaya@student.42istanbul.com.tr>  +#+  +#+       +#+      */
 /*                                                  +#+#+#+#+#+   +#+         */
 /*   Created: 2026/09/08 14:22:46 by abdkaya             #+#    #+#           */
-/*   Updated: 2026/09/13 00:11:26 by abdkaya            ###   ########.fr     */
+/*   Updated: 2026/09/14 01:13:53 by abdkaya            ###   ########.fr     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,5 +98,4 @@ int main()
     a.array = ar;
     a.size = 7;
     printf("%d",min_index(&a));
-
 }
